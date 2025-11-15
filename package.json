@@ -1,0 +1,36 @@
+{
+  "name": "cf-ai-my-photos",
+  "version": "1.0.0",
+  "description": "Photography portfolio website with AI-powered scheduling using Cloudflare Workers",
+  "main": "src/index.ts",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "start": "wrangler dev",
+    "build": "tsc",
+    "type-check": "tsc --noEmit"
+  },
+  "keywords": [
+    "cloudflare-workers",
+    "hono",
+    "photography",
+    "ai",
+    "scheduling"
+  ],
+  "author": "Shriya Sateesh",
+  "license": "MIT",
+  "dependencies": {
+    "hono": "^4.6.14",
+    "googleapis": "^144.0.0",
+    "uuid": "^11.0.3"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20241127.0",
+    "@types/uuid": "^10.0.0",
+    "typescript": "^5.7.2",
+    "wrangler": "^3.94.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

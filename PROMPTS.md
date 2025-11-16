@@ -56,3 +56,9 @@ Thank you!
 ## 2025-11-16 (Text Selection)
 
 **PROMPT:** Can you add text selection so that the AI co-writer can have context for the lyric help? Thanks!
+
+---
+
+## 2025-11-16 (Context Additon)
+
+**PROMPT:** Change the backend AI chat API to also use a context field, since before only the message field was being sent, in order for the AI co-writer to work. Also, please add appropriate error handling.

@@ -286,19 +286,19 @@ export const ChatPage = () => {
 
           <div class="suggested-prompts">
             <div class="prompt-card" onclick="useSuggestedPrompt('Help me write a chorus about overcoming doubt')">
-              <h3>🎵 Chorus Help</h3>
+              <h3>Chorus Help</h3>
               <p>Get help writing a catchy chorus</p>
             </div>
             <div class="prompt-card" onclick="useSuggestedPrompt('What rhymes with \\'heart\\' that feels emotional?')">
-              <h3>🔤 Find Rhymes</h3>
+              <h3>Find Rhymes</h3>
               <p>Discover perfect rhymes and synonyms</p>
             </div>
             <div class="prompt-card" onclick="useSuggestedPrompt('I want to write about change, give me some metaphors')">
-              <h3>💡 Brainstorm Ideas</h3>
+              <h3>Brainstorm Ideas</h3>
               <p>Generate creative concepts and themes</p>
             </div>
             <div class="prompt-card" onclick="useSuggestedPrompt('Rewrite this line to be more poetic: I miss you every day')">
-              <h3>✨ Improve Lines</h3>
+              <h3>Improve Lines</h3>
               <p>Refine and polish your lyrics</p>
             </div>
           </div>

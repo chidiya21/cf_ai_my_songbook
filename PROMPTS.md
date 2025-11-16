@@ -24,13 +24,9 @@ The project will use:
 UI Notes:
 - The Figma design I provided shows the Writing page aesthetic, but does not include every page.
 - You can create or extend layouts as needed to complete the app.
-
-Important:
-For every prompt I send related to this project (including this one), please output a short snippet I can paste into PROMPTS.md containing:
-1. Timestamp (YYYY-MM-DD HH:MM)
-2. "PROMPT:" + my message
-
+- 
 We will use Hono for routing and JSX-rendered pages.
+
 Thank you!
 
 ---

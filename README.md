@@ -1,4 +1,4 @@
-# My Photography Portfolio
+# My Songbook
 
 Photography portfolio website with AI-powered scheduling built on Cloudflare Workers. Has intelligent booking assistance and seamless calendar integration.
 

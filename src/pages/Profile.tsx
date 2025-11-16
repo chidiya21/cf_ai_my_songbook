@@ -1,227 +1,327 @@
-import { Layout } from '../components/Layout';
 import { html } from 'hono/html';
 
 export const ProfilePage = () => {
-  return (
-    <Layout activePage="profile" title="Profile - Songbook">
-      {html`
-        <style>
-          .profile-container {
-            max-width: 700px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 12px;
-            padding: 2rem;
-            box-shadow: 0 2px 8px var(--shadow-subtle);
-          }
+  return html`<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile - Songbook</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-          .profile-header {
-            text-align: center;
-            padding-bottom: 2rem;
-            border-bottom: 2px solid #e5e5e5;
-            margin-bottom: 2rem;
-          }
+    :root {
+      --bg-dark: #3d3232;
+      --paper-cream: #f5f0e8;
+      --paper-yellow: #fef9c3;
+      --text-dark: #2c2c2c;
+      --nav-inactive: #8b7b7b;
+      --spiral-metal: #5a5a5a;
+      --shadow-subtle: rgba(0, 0, 0, 0.15);
+    }
 
-          .profile-avatar {
-            width: 100px;
-            height: 100px;
-            background: var(--bg-dark);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.5rem;
-            margin: 0 auto 1rem;
-          }
+    body {
+      font-family: 'Courier New', monospace;
+      background: var(--bg-dark);
+      color: var(--text-dark);
+      min-height: 100vh;
+    }
 
-          .profile-section {
-            margin-bottom: 2rem;
-          }
+    /* Navigation */
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      padding: 1rem 2rem;
+      background: var(--bg-dark);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      position: relative;
+    }
 
-          .profile-section h2 {
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
-            color: var(--text-dark);
-          }
+    .logo {
+      position: absolute;
+      left: 2rem;
+      width: 50px;
+      height: 50px;
+    }
 
-          .profile-field {
-            margin-bottom: 1rem;
-          }
+    .logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
 
-          .profile-field label {
-            display: block;
-            font-size: 0.9rem;
-            color: #666;
-            margin-bottom: 0.5rem;
-          }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
 
-          .profile-field input,
-          .profile-field textarea {
-            width: 100%;
-            padding: 0.75rem;
-            border: 2px solid #e5e5e5;
-            border-radius: 8px;
-            font-family: inherit;
-            font-size: 0.95rem;
-          }
+    .nav-links a {
+      color: var(--nav-inactive);
+      text-decoration: none;
+      padding: 0.5rem 1.5rem;
+      border-radius: 20px;
+      transition: all 0.3s;
+      font-size: 0.95rem;
+    }
 
-          .profile-field textarea {
-            resize: vertical;
-            min-height: 100px;
-          }
+    .nav-links a.active {
+      background: var(--paper-cream);
+      color: var(--text-dark);
+    }
 
-          .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1rem;
-            margin-bottom: 2rem;
-          }
+    .nav-links a:hover:not(.active) {
+      color: white;
+    }
 
-          .stat-card {
-            text-align: center;
-            padding: 1.5rem;
-            background: #f9f9f9;
-            border-radius: 8px;
-          }
+    /* Main content area */
+    main {
+      padding: 2rem;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
 
-          .stat-card .number {
-            font-size: 2rem;
-            font-weight: bold;
-            color: var(--bg-dark);
-            margin-bottom: 0.5rem;
-          }
+    .profile-container {
+      max-width: 700px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 2px 8px var(--shadow-subtle);
+    }
 
-          .stat-card .label {
-            font-size: 0.85rem;
-            color: #666;
-          }
+    .profile-header {
+      text-align: center;
+      padding-bottom: 2rem;
+      border-bottom: 2px solid #e5e5e5;
+      margin-bottom: 2rem;
+    }
 
-          .save-btn {
-            width: 100%;
-            padding: 1rem;
-            background: var(--bg-dark);
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-family: inherit;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: background 0.2s;
-          }
+    .profile-avatar {
+      width: 120px;
+      height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1rem;
+    }
 
-          .save-btn:hover {
-            background: #2a2020;
-          }
-        </style>
+    .profile-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
 
-        <div class="profile-container">
-          <div class="profile-header">
-            <div class="profile-avatar">✍️</div>
-            <h1>Your Songwriter Profile</h1>
-          </div>
+    .profile-section {
+      margin-bottom: 2rem;
+    }
 
-          <div class="stats-grid">
-            <div class="stat-card">
-              <div class="number" id="songCount">0</div>
-              <div class="label">Songs</div>
-            </div>
-            <div class="stat-card">
-              <div class="number" id="recordingCount">0</div>
-              <div class="label">Recordings</div>
-            </div>
-            <div class="stat-card">
-              <div class="number" id="chatCount">0</div>
-              <div class="label">AI Chats</div>
-            </div>
-          </div>
+    .profile-section h2 {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      color: var(--text-dark);
+    }
 
-          <div class="profile-section">
-            <h2>Personal Info</h2>
-            <div class="profile-field">
-              <label>Display Name</label>
-              <input type="text" id="displayName" placeholder="Your name" />
-            </div>
-            <div class="profile-field">
-              <label>Bio</label>
-              <textarea id="bio" placeholder="Tell us about your songwriting journey..."></textarea>
-            </div>
-          </div>
+    .profile-field {
+      margin-bottom: 1rem;
+    }
 
-          <div class="profile-section">
-            <h2>Preferences</h2>
-            <div class="profile-field">
-              <label>Favorite Genres</label>
-              <input type="text" id="genres" placeholder="Pop, Rock, Country..." />
-            </div>
-            <div class="profile-field">
-              <label>Writing Goals</label>
-              <textarea id="goals" placeholder="What do you want to achieve with your songwriting?"></textarea>
-            </div>
-          </div>
+    .profile-field label {
+      display: block;
+      font-size: 0.9rem;
+      color: #666;
+      margin-bottom: 0.5rem;
+    }
 
-          <button class="save-btn" onclick="saveProfile()">Save Profile</button>
+    .profile-field input,
+    .profile-field textarea {
+      width: 100%;
+      padding: 0.75rem;
+      border: 2px solid #e5e5e5;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 0.95rem;
+    }
+
+    .profile-field textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .stat-card {
+      text-align: center;
+      padding: 1.5rem;
+      background: #f9f9f9;
+      border-radius: 8px;
+    }
+
+    .stat-card .number {
+      font-size: 2rem;
+      font-weight: bold;
+      color: var(--bg-dark);
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-card .label {
+      font-size: 0.85rem;
+      color: #666;
+    }
+
+    .save-btn {
+      width: 100%;
+      padding: 1rem;
+      background: var(--bg-dark);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .save-btn:hover {
+      background: #2a2020;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="logo">
+      <img src="/SongbookLogo.svg" alt="Songbook" />
+    </div>
+    <ul class="nav-links">
+      <li><a href="/writing">Writing</a></li>
+      <li><a href="/pages">Pages</a></li>
+      <li><a href="/recordings">Recordings</a></li>
+      <li><a href="/chat">Chat</a></li>
+      <li><a href="/profile" class="active">Profile</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <div class="profile-container">
+      <div class="profile-header">
+        <div class="profile-avatar">
+          <img src="/SongbookProfileIcon.svg" alt="Profile" />
         </div>
+        <h1>Your Songwriter Profile</h1>
+      </div>
 
-        <script>
-          async function loadProfile() {
-            try {
-              const response = await fetch('/api/profile');
-              if (response.ok) {
-                const data = await response.json();
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="number" id="songCount">0</div>
+          <div class="label">Songs</div>
+        </div>
+        <div class="stat-card">
+          <div class="number" id="recordingCount">0</div>
+          <div class="label">Recordings</div>
+        </div>
+        <div class="stat-card">
+          <div class="number" id="chatCount">0</div>
+          <div class="label">AI Chats</div>
+        </div>
+      </div>
 
-                if (data.displayName) document.getElementById('displayName').value = data.displayName;
-                if (data.bio) document.getElementById('bio').value = data.bio;
-                if (data.genres) document.getElementById('genres').value = data.genres;
-                if (data.goals) document.getElementById('goals').value = data.goals;
-              }
-            } catch (error) {
-              console.error('Error loading profile:', error);
-            }
-          }
+      <div class="profile-section">
+        <h2>Personal Info</h2>
+        <div class="profile-field">
+          <label>Display Name</label>
+          <input type="text" id="displayName" placeholder="Your name" />
+        </div>
+        <div class="profile-field">
+          <label>Bio</label>
+          <textarea id="bio" placeholder="Tell us about your songwriting journey..."></textarea>
+        </div>
+      </div>
 
-          async function loadStats() {
-            try {
-              const response = await fetch('/api/stats');
-              if (response.ok) {
-                const stats = await response.json();
-                document.getElementById('songCount').textContent = stats.songs || 0;
-                document.getElementById('recordingCount').textContent = stats.recordings || 0;
-                document.getElementById('chatCount').textContent = stats.chats || 0;
-              }
-            } catch (error) {
-              console.error('Error loading stats:', error);
-            }
-          }
+      <div class="profile-section">
+        <h2>Preferences</h2>
+        <div class="profile-field">
+          <label>Favorite Genres</label>
+          <input type="text" id="genres" placeholder="Pop, Rock, Country..." />
+        </div>
+        <div class="profile-field">
+          <label>Writing Goals</label>
+          <textarea id="goals" placeholder="What do you want to achieve with your songwriting?"></textarea>
+        </div>
+      </div>
 
-          async function saveProfile() {
-            const profileData = {
-              displayName: document.getElementById('displayName').value,
-              bio: document.getElementById('bio').value,
-              genres: document.getElementById('genres').value,
-              goals: document.getElementById('goals').value
-            };
+      <button class="save-btn" onclick="saveProfile()">Save Profile</button>
+    </div>
+  </main>
 
-            try {
-              const response = await fetch('/api/profile', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(profileData)
-              });
+  <script>
+    async function loadProfile() {
+      try {
+        const response = await fetch('/api/profile');
+        if (response.ok) {
+          const data = await response.json();
 
-              if (response.ok) {
-                alert('Profile saved successfully!');
-              }
-            } catch (error) {
-              console.error('Error saving profile:', error);
-              alert('Error saving profile. Please try again.');
-            }
-          }
+          if (data.displayName) document.getElementById('displayName').value = data.displayName;
+          if (data.bio) document.getElementById('bio').value = data.bio;
+          if (data.genres) document.getElementById('genres').value = data.genres;
+          if (data.goals) document.getElementById('goals').value = data.goals;
+        }
+      } catch (error) {
+        console.error('Error loading profile:', error);
+      }
+    }
 
-          loadProfile();
-          loadStats();
-        </script>
-      `}
-    </Layout>
-  );
+    async function loadStats() {
+      try {
+        const response = await fetch('/api/stats');
+        if (response.ok) {
+          const stats = await response.json();
+          document.getElementById('songCount').textContent = stats.songs || 0;
+          document.getElementById('recordingCount').textContent = stats.recordings || 0;
+          document.getElementById('chatCount').textContent = stats.chats || 0;
+        }
+      } catch (error) {
+        console.error('Error loading stats:', error);
+      }
+    }
+
+    async function saveProfile() {
+      const profileData = {
+        displayName: document.getElementById('displayName').value,
+        bio: document.getElementById('bio').value,
+        genres: document.getElementById('genres').value,
+        goals: document.getElementById('goals').value
+      };
+
+      try {
+        const response = await fetch('/api/profile', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(profileData)
+        });
+
+        if (response.ok) {
+          alert('Profile saved successfully!');
+        }
+      } catch (error) {
+        console.error('Error saving profile:', error);
+        alert('Error saving profile. Please try again.');
+      }
+    }
+
+    loadProfile();
+    loadStats();
+  </script>
+</body>
+</html>`;
 };

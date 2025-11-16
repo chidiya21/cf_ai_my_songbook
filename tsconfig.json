@@ -7,7 +7,6 @@
     "jsxFactory": "h",
     "jsxFragmentFactory": "Fragment",
     "moduleResolution": "node",
-    "types": ["@cloudflare/workers-types"],
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,

@@ -40,3 +40,13 @@ Thank you!
 **PROMPT:** I would like to Dockerize my app using Docker and docker-compose so it can run easily in any environment. Please add a Dockerfile and a docker-compose.yml, update the README with instructions for building and running the container, and ensure it works with our current Node, Wrangler, and Cloudflare Workers setup. Thanks!
 
 ---
+
+## 2025-11-15 (Fixing Hono)
+
+**PROMPT:** Right now all the files in the pages folder use React <Layout> and is not-fully compatible. Please make them fully Hono-compatibale with html templates.
+
+---
+
+## 2025-11-16 (Added Images)
+
+**PROMPT:** I have now also added images in the imgs folder to use as a background for the writing feature, the logo, the chat button on the right of the writing page for AI-assisted writing, and a profile photo. Please integrate them, they are svgs, thanks!

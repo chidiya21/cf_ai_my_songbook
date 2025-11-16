@@ -14,7 +14,7 @@ binding = "AI"
 # KV namespace for notes and metadata
 [[kv_namespaces]]
 binding = "NOTES_KV"
-id = "your-kv-namespace-id"
+id = "ccece4f86ad145c7b37b872053c78ae3"
 preview_id = "8aac9910c8b5444b8f13fbe17198fda2"
 
 # R2 bucket for audio recordings

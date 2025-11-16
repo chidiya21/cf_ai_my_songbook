@@ -1,4 +1,4 @@
-# Project Prompts Log
+# Project Prompts Log as per Cloudflare assignment guidlines. 
 
 This file contains a record of all major prompts and requests made during the development of this AI-powered songwriting notebook.
 

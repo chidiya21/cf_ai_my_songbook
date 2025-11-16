@@ -2,6 +2,11 @@ name = "ai-songbook"
 main = "src/index.tsx"
 compatibility_date = "2024-11-15"
 
+# Include assets directory
+[assets]
+directory = "./imgs"
+binding = "ASSETS"
+
 # Workers AI binding
 [ai]
 binding = "AI"
@@ -10,11 +15,13 @@ binding = "AI"
 [[kv_namespaces]]
 binding = "NOTES_KV"
 id = "your-kv-namespace-id"
+preview_id = "8aac9910c8b5444b8f13fbe17198fda2"
 
 # R2 bucket for audio recordings
 [[r2_buckets]]
 binding = "RECORDINGS"
 bucket_name = "songbook-recordings"
+preview_bucket_name = "songbook-recordings-dev" 
 
 # Durable Objects
 [[durable_objects.bindings]]

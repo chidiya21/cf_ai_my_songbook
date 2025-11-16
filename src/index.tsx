@@ -205,7 +205,7 @@ app.post('/api/recordings/upload', async (c) => {
     const fileName = `${recordingId}-${file.name}`;
 
     // Upload to R2
-    await c.env.RECORDINGS.put(fileName, file.stream(), {
+    await c.env.RECORDINGS.put(fileName, await file.arrayBuffer(), {
       httpMetadata: {
         contentType: file.type
       }
